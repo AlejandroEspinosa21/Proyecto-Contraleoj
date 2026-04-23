@@ -721,9 +721,8 @@
 
 <body>
 
-  <audio controls>
+  <audio id="musicaFondo" loop>
     <source src="kahoot.mp3" type="audio/mpeg">
-    Tu navegador no soporta el elemento de audio.
   </audio>
   <div class="shell">
     <header class="topbar">
@@ -1431,6 +1430,14 @@
       render();
     })();
   </script>
+
+  <script>
+    document.addEventListener('click', function() {
+        var audio = document.getElementById('musicaFondo');
+        audio.play();
+    }, { once: true }); // El 'once: true' hace que esto solo pase con el primer clic
+</script>
+
 </body>
 
 </html>
