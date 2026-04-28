@@ -110,7 +110,7 @@
 
     .hud {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 10px;
       min-width: min(100%, 620px);
     }
@@ -250,6 +250,187 @@
       color: #dfe7f2;
     }
 
+    .brief-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .brief-card {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .brief-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .brief-card span {
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 0.95rem;
+    }
+
+    .reward-container {
+      margin-top: 36px;
+      padding: 28px 24px;
+      border-radius: var(--radius-xl);
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border: 2px solid;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reward-container[data-tone="gold"] {
+      border-color: rgba(255, 213, 79, 0.4);
+      background: linear-gradient(135deg, rgba(255, 213, 79, 0.08), rgba(255, 213, 79, 0.02));
+    }
+
+    .reward-container[data-tone="gold"]::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 213, 79, 0.1), transparent 60%);
+      pointer-events: none;
+    }
+
+    .reward-container[data-tone="silver"] {
+      border-color: rgba(125, 211, 252, 0.4);
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.08), rgba(125, 211, 252, 0.02));
+    }
+
+    .reward-container[data-tone="silver"]::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(125, 211, 252, 0.1), transparent 60%);
+      pointer-events: none;
+    }
+
+    .reward-container[data-tone="bronze"] {
+      border-color: rgba(255, 154, 158, 0.4);
+      background: linear-gradient(135deg, rgba(255, 154, 158, 0.08), rgba(255, 154, 158, 0.02));
+    }
+
+    .reward-container[data-tone="bronze"]::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 154, 158, 0.1), transparent 60%);
+      pointer-events: none;
+    }
+
+    .reward-badge {
+      flex-shrink: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .reward-container[data-tone="gold"] .reward-badge {
+      background: linear-gradient(135deg, rgba(255, 213, 79, 0.3), rgba(255, 213, 79, 0.1));
+      border: 2px solid rgba(255, 213, 79, 0.6);
+      box-shadow: 0 0 24px rgba(255, 213, 79, 0.2);
+    }
+
+    .reward-container[data-tone="silver"] .reward-badge {
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.3), rgba(125, 211, 252, 0.1));
+      border: 2px solid rgba(125, 211, 252, 0.6);
+      box-shadow: 0 0 24px rgba(125, 211, 252, 0.2);
+    }
+
+    .reward-container[data-tone="bronze"] .reward-badge {
+      background: linear-gradient(135deg, rgba(255, 154, 158, 0.3), rgba(255, 154, 158, 0.1));
+      border: 2px solid rgba(255, 154, 158, 0.6);
+      box-shadow: 0 0 24px rgba(255, 154, 158, 0.2);
+    }
+
+    .reward-icon {
+      animation: reward-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes reward-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .reward-content {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .reward-title {
+      margin: 0 0 8px;
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .reward-container[data-tone="gold"] .reward-title {
+      color: rgba(255, 213, 79, 0.95);
+    }
+
+    .reward-container[data-tone="silver"] .reward-title {
+      color: rgba(125, 211, 252, 0.95);
+    }
+
+    .reward-container[data-tone="bronze"] .reward-title {
+      color: rgba(255, 154, 158, 0.95);
+    }
+
+    .reward-text {
+      margin: 0 0 12px;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .reward-tag {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .reward-container[data-tone="gold"] .reward-tag {
+      background: rgba(255, 213, 79, 0.15);
+      color: rgba(255, 213, 79, 0.9);
+      border: 1px solid rgba(255, 213, 79, 0.3);
+    }
+
+    .reward-container[data-tone="silver"] .reward-tag {
+      background: rgba(125, 211, 252, 0.15);
+      color: rgba(125, 211, 252, 0.9);
+      border: 1px solid rgba(125, 211, 252, 0.3);
+    }
+
+    .reward-container[data-tone="bronze"] .reward-tag {
+      background: rgba(255, 154, 158, 0.15);
+      color: rgba(255, 154, 158, 0.9);
+      border: 1px solid rgba(255, 154, 158, 0.3);
+    }
+
     .choices {
       display: flex;
       flex-direction: column;
@@ -353,6 +534,21 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
+    .stat[data-tone="success"] {
+      border-color: rgba(123, 241, 168, 0.38);
+      background: rgba(123, 241, 168, 0.08);
+    }
+
+    .stat[data-tone="warning"] {
+      border-color: rgba(255, 213, 79, 0.38);
+      background: rgba(255, 213, 79, 0.08);
+    }
+
+    .stat[data-tone="danger"] {
+      border-color: rgba(255, 122, 122, 0.42);
+      background: rgba(255, 122, 122, 0.1);
+    }
+
     .stat label {
       display: block;
       color: var(--muted);
@@ -366,6 +562,33 @@
       display: block;
       font-size: 1.7rem;
       line-height: 1;
+    }
+
+    .stat[data-tone="success"] strong,
+    .hud-chip[data-tone="success"] strong {
+      color: var(--success);
+    }
+
+    .stat[data-tone="warning"] strong,
+    .hud-chip[data-tone="warning"] strong {
+      color: #ffd54f;
+    }
+
+    .stat[data-tone="danger"] strong,
+    .hud-chip[data-tone="danger"] strong {
+      color: var(--danger);
+    }
+
+    .hud-chip[data-tone="success"] {
+      border-color: rgba(123, 241, 168, 0.28);
+    }
+
+    .hud-chip[data-tone="warning"] {
+      border-color: rgba(255, 213, 79, 0.28);
+    }
+
+    .hud-chip[data-tone="danger"] {
+      border-color: rgba(255, 122, 122, 0.34);
     }
 
     .stat small {
@@ -673,7 +896,7 @@
 
       .hud {
         min-width: 0;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .content {
@@ -715,6 +938,10 @@
       .stats-grid {
         grid-template-columns: 1fr 1fr;
       }
+
+      .brief-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -727,17 +954,17 @@
   <div class="shell">
     <header class="topbar">
       <div class="brand">
-        <p class="eyebrow">Simulación IHC / UX</p>
+        <p class="eyebrow">Simulación del producto</p>
         <h1 class="title">Proyecto Contrarreloj</h1>
-        <p class="subtitle">Eres la persona responsable del producto: defines la experiencia, evalúas decisiones de
-          IHC/UX y equilibras calidad, tiempo y satisfacción para sacar adelante la aplicación.</p>
+        <p class="subtitle">Eres la persona responsable del producto: tomas decisiones, equilibras calidad, tiempo y satisfacción para sacar adelante la aplicación.</p>
       </div>
       <div class="hud" aria-label="Variables iniciales del proyecto">
-        <div class="hud-chip">Satisfacción<strong id="hud-satisfaction">68%</strong></div>
-        <div class="hud-chip">Errores<strong id="hud-errors">2</strong></div>
-        <div class="hud-chip">Tiempo<strong id="hud-time">6 días</strong></div>
-        <div class="hud-chip">Diseño<strong id="hud-design">70/100</strong></div>
-        <div class="hud-chip">Progreso<strong id="hud-progress">20%</strong></div>
+        <div class="hud-chip" data-stat="satisfaction">Satisfacción<strong id="hud-satisfaction">Pendiente</strong></div>
+        <div class="hud-chip" data-stat="errors">Errores<strong id="hud-errors">Pendiente</strong></div>
+        <div class="hud-chip" data-stat="time">Tiempo<strong id="hud-time">Pendiente</strong></div>
+        <div class="hud-chip" data-stat="design">Diseño<strong id="hud-design">Pendiente</strong></div>
+        <div class="hud-chip">Progreso<strong id="hud-progress">Pendiente</strong></div>
+        <div class="hud-chip" data-stat="timer">Cronómetro<strong id="hud-timer">00:00</strong></div>
       </div>
     </header>
 
@@ -756,43 +983,46 @@
         <section class="panel">
           <h3>Estado del proyecto</h3>
           <div class="stats-grid">
-            <div class="stat">
+            <div class="stat" data-stat="satisfaction">
               <label>Satisfacción</label>
-              <strong id="stat-satisfaction">68%</strong>
-              <small id="stat-satisfaction-note">Base inicial</small>
+              <strong id="stat-satisfaction">--</strong>
+              <small id="stat-satisfaction-note">Se mostrará al iniciar</small>
             </div>
-            <div class="stat">
+            <div class="stat" data-stat="errors">
               <label>Errores</label>
-              <strong id="stat-errors">2</strong>
-              <small id="stat-errors-note">Base inicial</small>
+              <strong id="stat-errors">--</strong>
+              <small id="stat-errors-note">Se mostrará al iniciar</small>
             </div>
-            <div class="stat">
+            <div class="stat" data-stat="time">
               <label>Tiempo</label>
-              <strong id="stat-time">6</strong>
-              <small>días restantes</small>
+              <strong id="stat-time">--</strong>
+              <small>Se mostrará al iniciar</small>
             </div>
-            <div class="stat">
+            <div class="stat" data-stat="design">
               <label>Diseño</label>
-              <strong id="stat-design">70</strong>
-              <small>/ 100</small>
+              <strong id="stat-design">--</strong>
+              <small>Se mostrará al iniciar</small>
             </div>
           </div>
           <div class="metric">
-            <div class="metric-row"><span>Progreso del proyecto</span><strong id="stat-progress">20%</strong></div>
-            <div class="meter"><span id="meter-progress" style="width: 20%"></span></div>
+            <div class="metric-row"><span>Progreso del proyecto</span><strong id="stat-progress">--</strong></div>
+            <div class="meter"><span id="meter-progress" style="width: 0%"></span></div>
+          </div>
+          <div class="metric" style="margin-top: 16px;">
+            <div class="metric-row"><span>Presión del cronómetro</span><strong id="stat-timer">00:00</strong></div>
+            <div class="meter"><span id="meter-timer" style="width: 100%"></span></div>
           </div>
         </section>
 
         <section class="panel">
           <h3>Indicaciones</h3>
-          <div class="callout" id="assistant-copy">Tu trabajo empieza ahora: define la experiencia, detecta riesgos de
-            usabilidad y decide cómo balancear tiempo, funcionalidades y calidad.</div>
+          <div class="callout" id="assistant-copy">Antes de empezar, revisa la meta de la simulación y pulsa “Comenzar la simulación”. Después aparecerán las estadísticas y las decisiones.</div>
           <div class="footer-actions" id="action-zone"></div>
         </section>
 
         <section class="panel" aria-label="Mascota asistente">
           <div class="dog">
-            <div class="dog-bubble" id="dog-message">Arranca con criterio de UX: cada elección se nota en el proyecto.
+            <div class="dog-bubble" id="dog-message">Arranca con criterio: cada elección se nota en el proyecto.
             </div>
             <div class="dog-body">
               <div class="ear-left"></div>
@@ -827,9 +1057,17 @@
         progress: 20,
       };
 
+      const timeLimitSeconds = 180;
+
       const scenes = ["inicio", "decision", "status", "final"];
       const state = { ...initialState };
       let currentScene = 0;
+      let gameStarted = false;
+      let firstDecisionMade = false;
+      let incorrectDecisionsCount = 0;
+      let remainingSeconds = timeLimitSeconds;
+      let timerId = null;
+      let timerPressureMultiplier = 1;
       let decisionStep = 0;
       let choiceLocked = false;
       const decisionHistory = [];
@@ -843,10 +1081,10 @@
             {
               label: "Priorizar pruebas de usabilidad",
               desc: "Reduce errores y mejora comprensión, a cambio de consumir tiempo.",
-              tag: "UX primero",
+              tag: "Primero",
               note: "Se invirtió en evidencia de uso real antes de ampliar alcance.",
               dog: "Buena decisión: validas interacción antes de escalar funcionalidades.",
-              delta: { satisfaction: 16, errors: -1, time: -2, design: 11, progress: 7 },
+              delta: { satisfaction: 16, errors: -1, time: -1, design: 11, progress: 7 },
             },
             {
               label: "Priorizar nuevas funciones",
@@ -854,7 +1092,7 @@
               tag: "Más alcance",
               note: "Se priorizó alcance funcional por encima de validación de experiencia.",
               dog: "Avanzas rápido, pero aumenta la deuda de experiencia.",
-              delta: { satisfaction: -10, errors: 3, time: 1, design: -7, progress: 18 },
+              delta: { satisfaction: -10, errors: 3, time: 0, design: -7, progress: 18 },
             },
           ],
         },
@@ -891,7 +1129,7 @@
               desc: "Demora un poco el cierre, pero mejora calidad global y reduce incidencias.",
               tag: "Accesibilidad activa",
               note: "Se priorizó una experiencia usable para más perfiles de usuario.",
-              dog: "Buena práctica: calidad UX también es accesibilidad.",
+              dog: "Buena práctica: la calidad también es accesibilidad.",
               delta: { satisfaction: 9, errors: -1, time: -1, design: 8, progress: 4 },
             },
             {
@@ -900,7 +1138,7 @@
               tag: "Cierre acelerado",
               note: "Se difirió accesibilidad, elevando riesgo de calidad percibida.",
               dog: "Cierra más rápido, pero con deuda visible desde el lanzamiento.",
-              delta: { satisfaction: -7, errors: 2, time: 1, design: -6, progress: 10 },
+              delta: { satisfaction: -7, errors: 2, time: 0, design: -6, progress: 10 },
             },
           ],
         },
@@ -912,7 +1150,7 @@
             {
               label: "Optimizar tiempos de respuesta y flujos críticos",
               desc: "Se invierte en performance, con menor avance de nuevas pantallas por sprint.",
-              tag: "Performance UX",
+              tag: "Rendimiento",
               note: "Se priorizó fluidez de interacción sobre expansión rápida de alcance.",
               dog: "Buena lectura: una app rápida también es una app más usable.",
               delta: { satisfaction: 10, errors: -1, time: -1, design: 4, progress: 5 },
@@ -923,21 +1161,21 @@
               tag: "Alcance primero",
               note: "Se aceptó degradación temporal de experiencia para sostener roadmap.",
               dog: "Cuidado: si la respuesta es lenta, el usuario percibe baja calidad.",
-              delta: { satisfaction: -8, errors: 1, time: 1, design: -2, progress: 11 },
+              delta: { satisfaction: -8, errors: 1, time: 0, design: -2, progress: 11 },
             },
           ],
         },
         {
           title: "Quinta situación: presión comercial",
           prompt: "Negocio exige lanzar una función promocional sin validación completa. ¿Cómo procedes?",
-          context: "El conflicto entre objetivos comerciales y criterios de IHC requiere priorización explícita.",
+          context: "El conflicto entre objetivos comerciales y criterios del proyecto requiere priorización explícita.",
           options: [
             {
               label: "Liberación controlada con experimento A/B",
               desc: "Se entrega valor comercial, pero con medición de uso y límites de impacto.",
               tag: "Evidencia y negocio",
               note: "Se equilibró velocidad de negocio con validación gradual de experiencia.",
-              dog: "Decisión madura: avanzas sin perder control sobre la UX.",
+              dog: "Decisión madura: avanzas sin perder control sobre la experiencia.",
               delta: { satisfaction: 6, errors: 0, time: -1, design: 3, progress: 8 },
             },
             {
@@ -946,7 +1184,7 @@
               tag: "Go-live total",
               note: "Se priorizó exposición total por encima de control de calidad percibida.",
               dog: "Puedes ganar tracción rápida, pero también más fricción y soporte.",
-              delta: { satisfaction: -6, errors: 2, time: 1, design: -4, progress: 12 },
+              delta: { satisfaction: -6, errors: 2, time: 0, design: -4, progress: 12 },
             },
           ],
         },
@@ -969,7 +1207,7 @@
               tag: "Parche exprés",
               note: "Se sostuvo cronograma con mitigación parcial del incidente.",
               dog: "Rápido, sí; robusto, no siempre. Vigila el costo posterior.",
-              delta: { satisfaction: -9, errors: 3, time: 1, design: -3, progress: 10 },
+              delta: { satisfaction: -9, errors: 3, time: 0, design: -3, progress: 10 },
             },
           ],
         },
@@ -981,7 +1219,7 @@
             {
               label: "Rediseñar el onboarding con pasos guiados y feedback inmediato",
               desc: "Requiere más trabajo de diseño, pero reduce abandono temprano.",
-              tag: "Adopción UX",
+              tag: "Adopción",
               note: "Se optimizó la primera experiencia para mejorar retención y claridad.",
               dog: "Muy bien: un buen inicio reduce fricción en todo el producto.",
               delta: { satisfaction: 10, errors: -1, time: -1, design: 7, progress: 5 },
@@ -992,7 +1230,7 @@
               tag: "Atajo documental",
               note: "Se evitó rediseño profundo y se trasladó esfuerzo al usuario.",
               dog: "Funciona parcialmente, pero no corrige la raíz del problema.",
-              delta: { satisfaction: -7, errors: 1, time: 1, design: -4, progress: 9 },
+              delta: { satisfaction: -7, errors: 1, time: 0, design: -4, progress: 9 },
             },
           ],
         },
@@ -1015,7 +1253,7 @@
               tag: "Volumen máximo",
               note: "Se buscó impacto rápido con menor control sobre percepción del usuario.",
               dog: "Sube visibilidad, pero también el rechazo si no es relevante.",
-              delta: { satisfaction: -8, errors: 1, time: 1, design: -3, progress: 10 },
+              delta: { satisfaction: -8, errors: 1, time: 0, design: -3, progress: 10 },
             },
           ],
         },
@@ -1033,7 +1271,7 @@
               delta: { satisfaction: 9, errors: -1, time: -1, design: 5, progress: 6 },
             },
             {
-              label: "Escalar temporalmente el equipo de soporte sin cambios de UX",
+              label: "Escalar temporalmente el equipo de soporte sin cambios de diseño",
               desc: "Alivia respuesta inmediata, pero mantiene origen de los problemas.",
               tag: "Contención",
               note: "Se absorbió demanda operativa sin corregir la experiencia base.",
@@ -1061,7 +1299,7 @@
               tag: "Cierre legal mínimo",
               note: "Se priorizó tiempo por encima de claridad en políticas de datos.",
               dog: "Puede salir rápido, pero compromete confianza si el usuario no entiende.",
-              delta: { satisfaction: -7, errors: 2, time: 1, design: -4, progress: 10 },
+              delta: { satisfaction: -7, errors: 2, time: 0, design: -4, progress: 10 },
             },
           ],
         },
@@ -1080,9 +1318,15 @@
         time: document.getElementById("hud-time"),
         design: document.getElementById("hud-design"),
         progress: document.getElementById("hud-progress"),
+        timer: document.getElementById("hud-timer"),
       };
 
       const stat = {
+        satisfactionCard: document.querySelector('[data-stat="satisfaction"]'),
+        errorsCard: document.querySelector('[data-stat="errors"]'),
+        timeCard: document.querySelector('[data-stat="time"]'),
+        designCard: document.querySelector('[data-stat="design"]'),
+        timerChip: document.querySelector('[data-stat="timer"]'),
         satisfaction: document.getElementById("stat-satisfaction"),
         errors: document.getElementById("stat-errors"),
         time: document.getElementById("stat-time"),
@@ -1091,6 +1335,8 @@
         satisfactionNote: document.getElementById("stat-satisfaction-note"),
         errorsNote: document.getElementById("stat-errors-note"),
         meterProgress: document.getElementById("meter-progress"),
+        timer: document.getElementById("stat-timer"),
+        meterTimer: document.getElementById("meter-timer"),
       };
 
       function clamp(value, min, max) {
@@ -1101,12 +1347,124 @@
         return `${value > 0 ? "+" : ""}${value}${suffix}`;
       }
 
+      function formatTime(seconds) {
+        const safeSeconds = Math.max(0, Math.floor(seconds));
+        const minutes = Math.floor(safeSeconds / 60);
+        const remaining = safeSeconds % 60;
+        return `${String(minutes).padStart(2, "0")}:${String(remaining).padStart(2, "0")}`;
+      }
+
+      function toneForLevel(value, goodThreshold, warningThreshold) {
+        if (value >= goodThreshold) {
+          return "success";
+        }
+
+        if (value >= warningThreshold) {
+          return "warning";
+        }
+
+        return "danger";
+      }
+
+      function toneForLowLevel(value, warningThreshold, dangerThreshold) {
+        if (value >= dangerThreshold) {
+          return "success";
+        }
+
+        if (value >= warningThreshold) {
+          return "warning";
+        }
+
+        return "danger";
+      }
+
+      function setTone(node, tone) {
+        if (!node) {
+          return;
+        }
+
+        if (tone) {
+          node.dataset.tone = tone;
+          return;
+        }
+
+        delete node.dataset.tone;
+      }
+
+      function stopTimer() {
+        if (timerId !== null) {
+          clearInterval(timerId);
+          timerId = null;
+        }
+      }
+
+      function finishBecauseTimeRanOut() {
+        stopTimer();
+        remainingSeconds = 0;
+        state.satisfaction = clamp(state.satisfaction - 6, 0, 100);
+        state.errors = Math.max(0, state.errors + 1);
+        state.progress = clamp(state.progress + 8, 0, 100);
+        currentScene = 2;
+        assistantCopy.textContent = "El cronómetro llegó a cero. La presión aceleró el cierre y la partida pasó al estado final con una penalización por tiempo.";
+        dogMessage.textContent = "Se acabó el tiempo: ahora toca revisar el impacto del retraso.";
+        render();
+      }
+
+      function startTimer() {
+        stopTimer();
+        remainingSeconds = timeLimitSeconds;
+        timerPressureMultiplier = 1;
+        updateHud();
+        timerId = setInterval(() => {
+          if (!gameStarted || currentScene !== 1) {
+            return;
+          }
+
+          remainingSeconds -= timerPressureMultiplier;
+          if (remainingSeconds <= 0) {
+            finishBecauseTimeRanOut();
+            return;
+          }
+
+          updateHud();
+        }, 1000);
+      }
+
       function updateHud() {
+        if (!firstDecisionMade) {
+          hud.satisfaction.textContent = "Pendiente";
+          hud.errors.textContent = "Pendiente";
+          hud.time.textContent = "Pendiente";
+          hud.design.textContent = "Pendiente";
+          hud.progress.textContent = "Pendiente";
+          hud.timer.textContent = formatTime(timeLimitSeconds);
+
+          stat.satisfaction.textContent = "--";
+          stat.errors.textContent = "--";
+          stat.time.textContent = "--";
+          stat.design.textContent = "--";
+          stat.progress.textContent = "--";
+          stat.meterProgress.style.width = "0%";
+          stat.timer.textContent = formatTime(timeLimitSeconds);
+          stat.meterTimer.style.width = "100%";
+
+          setTone(stat.satisfactionCard, null);
+          setTone(stat.errorsCard, null);
+          setTone(stat.timeCard, null);
+          setTone(stat.designCard, null);
+          setTone(stat.timerChip, null);
+
+          stat.satisfactionNote.textContent = "Se mostrará al iniciar";
+          stat.errorsNote.textContent = "Se mostrará al iniciar";
+          return;
+        }
+
         hud.satisfaction.textContent = `${clamp(state.satisfaction, 0, 100)}%`;
         hud.errors.textContent = `${Math.max(0, state.errors)}`;
         hud.time.textContent = `${Math.max(0, state.time)} días`;
         hud.design.textContent = `${clamp(state.design, 0, 100)}/100`;
         hud.progress.textContent = `${clamp(state.progress, 0, 100)}%`;
+        hud.timer.textContent = formatTime(remainingSeconds);
 
         stat.satisfaction.textContent = `${clamp(state.satisfaction, 0, 100)}%`;
         stat.errors.textContent = `${Math.max(0, state.errors)}`;
@@ -1114,8 +1472,16 @@
         stat.design.textContent = `${clamp(state.design, 0, 100)}`;
         stat.progress.textContent = `${clamp(state.progress, 0, 100)}%`;
         stat.meterProgress.style.width = `${clamp(state.progress, 0, 100)}%`;
+        stat.timer.textContent = formatTime(remainingSeconds);
+        stat.meterTimer.style.width = `${clamp((remainingSeconds / timeLimitSeconds) * 100, 0, 100)}%`;
 
-        stat.satisfactionNote.textContent = state.satisfaction >= 75 ? "Se siente sólido" : state.satisfaction >= 60 ? "Todavía mejorable" : "Alerta de UX";
+        setTone(stat.satisfactionCard, toneForLevel(state.satisfaction, 75, 60));
+        setTone(stat.errorsCard, state.errors <= 2 ? "success" : state.errors <= 4 ? "warning" : "danger");
+        setTone(stat.timeCard, toneForLowLevel(state.time, 2, 4));
+        setTone(stat.designCard, toneForLevel(state.design, 75, 60));
+        setTone(stat.timerChip, toneForLowLevel(Math.ceil(remainingSeconds), 45, 90));
+
+        stat.satisfactionNote.textContent = state.satisfaction >= 75 ? "Se siente sólido" : state.satisfaction >= 60 ? "Todavía mejorable" : "Alerta";
         stat.errorsNote.textContent = state.errors <= 2 ? "Controlado" : state.errors <= 4 ? "Vigilancia activa" : "Riesgo alto";
       }
 
@@ -1148,19 +1514,26 @@
         story.innerHTML = `
           <div class="scene-tag">Inicio</div>
           <h2>Tu trabajo es diseñar la experiencia.</h2>
-          <p>Entraste al proyecto como desarrollador y diseñador del producto. No basta con escribir código: tienes que tomar decisiones de IHC/UX para que la aplicación sea usable, clara y lista para lanzarse.</p>
-          <p>Desde este punto, cada elección mueve variables del proyecto. Cuida la satisfacción del usuario, los errores, el tiempo restante, la calidad del diseño y el progreso general.</p>
+          <p>Primero presiona <strong>Comenzar la simulación</strong>. En ese momento se activan las estadísticas y empieza la toma de decisiones.</p>
+          <p>Tu objetivo es resolver los retos del proyecto sin perder de vista tres cosas: claridad, calidad de diseño y control de errores.</p>
           <div class="callout"><strong>Meta:</strong> llegar al lanzamiento con una experiencia clara, un diseño consistente y el menor número posible de errores visibles.</div>
+          <div class="brief-grid">
+            <div class="brief-card"><strong>Cómo ganas</strong><span>Sube satisfacción, mantén errores bajos y protege el diseño mientras avanzas.</span></div>
+            <div class="brief-card"><strong>Cómo pierdes</strong><span>Tomar atajos puede mejorar velocidad, pero baja la calidad percibida del producto.</span></div>
+            <div class="brief-card"><strong>Qué mirar</strong><span>Observa satisfacción, errores, tiempo, diseño y progreso antes de responder.</span></div>
+          </div>
         `;
 
-        assistantCopy.textContent = "Empiezas con una base razonable. Tu primera misión es definir qué priorizas antes de comprometer el resto del proyecto.";
-        dogMessage.textContent = "Arranca con criterio de UX: cada elección se nota en el proyecto.";
+        assistantCopy.textContent = "Antes de jugar, revisa cómo se gana y cómo se pierde. Luego pulsa el botón de inicio para desbloquear las estadísticas reales.";
+        dogMessage.textContent = "Arranca con criterio: cada elección se nota en el proyecto.";
         setControls([
           {
             label: "Comenzar la simulación",
             primary: true,
             onClick: () => {
+              gameStarted = true;
               currentScene = 1;
+              startTimer();
               render();
             },
           },
@@ -1169,8 +1542,15 @@
 
       function renderDecision() {
         choiceLocked = false;
+        timerPressureMultiplier = 1 + (decisionStep * 0.20);
+
+        if (remainingSeconds <= 0) {
+          finishBecauseTimeRanOut();
+          return;
+        }
 
         if (decisionStep >= decisionFlow.length) {
+          stopTimer();
           currentScene = 2;
           render();
           return;
@@ -1197,12 +1577,12 @@
           </div>
         `;
 
-        assistantCopy.textContent = "Evalúa cada alternativa desde criterios IHC: eficiencia, claridad, prevención de errores y percepción de calidad.";
+        assistantCopy.textContent = `Evalúa cada alternativa. La presión aumenta a medida que avanzas: ahora el reloj va x${timerPressureMultiplier.toFixed(1)}.`;
         dogMessage.textContent = "Responde con criterio: esta secuencia define el cierre del proyecto.";
         setControls([]);
 
         currentQuestion.options.forEach((option, index) => {
-          document.getElementById(`choice-${index}`).addEventListener("click", () => choose(option));
+          document.getElementById(`choice-${index}`).addEventListener("click", () => choose(option, index));
         });
       }
 
@@ -1220,7 +1600,7 @@
         state.progress = clamp(state.progress, 0, 100);
       }
 
-      function choose(option) {
+      function choose(option, optionIndex) {
         if (choiceLocked || currentScene !== 1 || decisionStep >= decisionFlow.length) {
           return;
         }
@@ -1233,6 +1613,17 @@
         });
 
         const currentQuestion = decisionFlow[decisionStep];
+        
+        // Detectar si es una decisión incorrecta (opción índice 1 es la mala)
+        const isIncorrect = optionIndex === 1;
+        if (isIncorrect) {
+          incorrectDecisionsCount += 1;
+          // Cada 2 decisiones incorrectas, aplicar -1 día adicional
+          if (incorrectDecisionsCount % 2 === 0) {
+            state.time = Math.max(0, state.time - 1);
+          }
+        }
+        
         decisionHistory.push({
           question: currentQuestion.title,
           answer: option.label,
@@ -1240,12 +1631,14 @@
           delta: option.delta,
         });
         applyDelta(option.delta);
+        firstDecisionMade = true;
         decisionStep += 1;
         if (decisionStep < decisionFlow.length) {
           render();
           return;
         }
 
+        stopTimer();
         choiceLocked = false;
         currentScene = 2;
         render();
@@ -1274,7 +1667,7 @@
         story.innerHTML = `
           <div class="scene-tag">Estado del proyecto</div>
           <h2>Ya ves el impacto de tus decisiones.</h2>
-          <p>Completaste ${decisionFlow.length} preguntas estratégicas. Aquí se refleja el efecto acumulado sobre experiencia de usuario, calidad de diseño y ritmo de entrega.</p>
+          <p>Completaste ${decisionFlow.length} preguntas estratégicas. Aquí se refleja el efecto acumulado sobre experiencia, calidad de diseño y ritmo de entrega.</p>
           <div class="badge">Resumen acumulado de la fase de decisiones</div>
           <div class="delta-list">
             ${answersMarkup}
@@ -1319,7 +1712,7 @@
             tone: "success",
             title: "Lanzamiento sólido",
             text: "Priorizaste la experiencia del usuario y el diseño se siente coherente. La aplicación sale con buena recepción, pocos errores visibles y una base fuerte para seguir creciendo.",
-            extra: "El equipo reconoce tu criterio de UX porque equilibraste calidad, flujo y validación real.",
+            extra: "El equipo reconoce tu criterio porque equilibraste calidad, flujo y validación real.",
           };
         }
 
@@ -1327,9 +1720,9 @@
           return {
             score: launchScore,
             tone: "warning",
-            title: "Lanzamiento aceptable, pero con deuda UX",
+            title: "Lanzamiento aceptable, pero con deuda de diseño",
             text: "La aplicación logra salir, aunque todavía se notan fricciones. El producto avanza, pero quedan decisiones de interacción que conviene corregir antes de la siguiente versión.",
-            extra: "No fue un mal cierre, pero la experiencia quedó a medio camino entre alcance y usabilidad.",
+            extra: "No fue un mal cierre, pero la experiencia quedó a medio camino entre alcance y calidad.",
           };
         }
 
@@ -1345,8 +1738,8 @@
       function buildReward() {
         if (state.satisfaction >= 78 && state.errors <= 2 && state.design >= 76) {
           return {
-            title: "Distintivo Oro de UX",
-            text: "Desbloqueaste una entrega destacada: el equipo reconoce tu criterio de diseño centrado en el usuario.",
+            title: "Distintivo Oro",
+            text: "Desbloqueaste una entrega destacada: el equipo reconoce tu criterio de diseño centrado en la experiencia.",
             tag: "Recompensa alta",
           };
         }
@@ -1367,6 +1760,7 @@
       }
 
       function renderFinal() {
+        stopTimer();
         const ending = buildEnding();
         const reward = buildReward();
 
@@ -1378,15 +1772,21 @@
           <div class="ending" data-tone="${ending.tone}">
             <strong>Conclusión:</strong> ${ending.extra}
           </div>
-          <div class="callout" style="margin-top: 18px; border-left: 4px solid var(--accent-2);">
-            <strong>Recompensa desbloqueada:</strong> ${reward.title}<br />
-            ${reward.text}<br />
-            <span style="color: var(--accent-2); font-weight: 800;">${reward.tag}</span>
+          
+          <div class="reward-container" data-tone="${ending.tone === 'success' ? 'gold' : ending.tone === 'warning' ? 'silver' : 'bronze'}">
+            <div class="reward-badge">
+              <div class="reward-icon">${ending.tone === 'success' ? '⭐' : ending.tone === 'warning' ? '✨' : '🎖️'}</div>
+            </div>
+            <div class="reward-content">
+              <h3 class="reward-title">${reward.title}</h3>
+              <p class="reward-text">${reward.text}</p>
+              <span class="reward-tag">${reward.tag}</span>
+            </div>
           </div>
         `;
 
-        assistantCopy.textContent = ending.tone === "success" ? "Buen cierre. La experiencia de usuario sostuvo el proyecto." : ending.tone === "warning" ? "El lanzamiento funciona, pero todavía hay trabajo de UX por delante." : "La experiencia sufrió por las prioridades elegidas. El usuario lo notará.";
-        dogMessage.textContent = ending.tone === "success" ? "¡Muy bien! La UX respaldó el lanzamiento." : ending.tone === "warning" ? "Llegaste al final, pero aún hay deuda de diseño." : "Ojo: la experiencia quedó golpeada por varias decisiones.";
+        assistantCopy.textContent = ending.tone === "success" ? "Buen cierre. La experiencia sostuvo el proyecto." : ending.tone === "warning" ? "El lanzamiento funciona, pero todavía hay trabajo de diseño por delante." : "La experiencia sufrió por las prioridades elegidas. El usuario lo notará.";
+        dogMessage.textContent = ending.tone === "success" ? "¡Muy bien! La experiencia respaldó el lanzamiento." : ending.tone === "warning" ? "Llegaste al final, pero aún hay deuda de diseño." : "Ojo: la experiencia quedó golpeada por varias decisiones.";
         setControls([
           {
             label: "Reiniciar historia",
